@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/preppin-no-bg.png" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text:ital@0;1&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- External CSS -->
+    <link href="mainmainstyle.css" rel="stylesheet" type="text/css" />
+    <link href="signup.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome -->
+    <script
+        src="https://kit.fontawesome.com/8b02daf965.js"
+        crossorigin="anonymous"
+    ></script>
+    <script defer src="js/script.js"></script>
+
+    <title>Preppin - Sign Up</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img
+              src="/img/preppin-no-bg.png"
+              class="logo"
+              alt="logo of Preppin"
+              style="height: 90px; width: auto; margin-top: 8px; margin-left: 0px;"
+            />
+          </a>
+        <nav class="main-nav">
+          <ul class="main-nav-list">
+            <li>
+              <a href="index.html#how" class="nav-link">How It Works</a>
+            </li>
+            <li>
+              <a href="index.html#meals" class="nav-link">Meals</a>
+            </li>
+            <li>
+              <a href="index.html#pricing" class="nav-link">Pricing</a>
+            </li>
+            <li>
+              <a href="help.html" class="nav-link">Help</a>
+          </li>
+          </ul>
+        </nav>
+  
+        <button class="mobile-nav-btn">
+          <span class="mobile-open">
+            <i class="fa-solid fa-bars mobile-open"></i>
+          </span>
+          <span class="mobile-close"
+            ><i class="fa-solid fa-xmark mobile-close"></i
+          ></span>
+        </button>
+      </header>
+
+      <main>
+        <section class="section-signup">
+            <div class="signup-container">
+                <h1 class="subheading">Join Us!</h1>
+                <h2 class="body-heading">Create Your Account</h2>
+                <form action="dashboard.html" method="POST" class="signup-form">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    <button type="submit" class="btn solid-btn">Sign Up</button>
+                </form>
+                <p class="signup-message">Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </section>
+      </main>
+
+</body>
+</html>
