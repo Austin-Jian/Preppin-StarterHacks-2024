@@ -81,11 +81,19 @@
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn solid-btn">Login</button>
+                    <button type="submit" class="btn solid-btn" onclick="talk()">Login</button>
                 </form>
                 <p class="login-message">Don't have an account? <a href="signup.html">Sign up</a></p>
             </div>
         </section>
       </main>
 </body>
+<script>
+
+  const password = document.getElementById("password");
+  function talk(){
+    console.log(password.value);
+  }
+ usernames = []
+</script>
 </html>
