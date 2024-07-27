@@ -637,7 +637,14 @@ small {
   max-width: 130rem;
   margin: 0 auto;
   padding: 6rem 4rem 2rem 4rem;
+  margin-bottom: 60px; /* Increase the margin to create more space */
 }
+.section-progress {
+  background-color: #f7f7f7; /* Adjust this to match the meals section background */
+  padding: 60px 20px;
+}
+
+
 
 /* What Plan Section */
 .section-what {

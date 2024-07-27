@@ -718,6 +718,11 @@ small {
   padding: 6rem 4rem 2rem 4rem;
 }
 
+/* Add some space above the progress section */
+.section-progress {
+  margin-top: 125px; /* Adjust this value to the desired spacing */
+}
+
 /* What Plan Section */
 .section-what {
   max-width: 130rem;
