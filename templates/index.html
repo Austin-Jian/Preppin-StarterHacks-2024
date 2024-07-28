@@ -62,7 +62,7 @@
           </ul>
           <a href="surveyChoices.html" class="btn solid-btn mobile-order nav-link"
           ><i class="fa-regular"></i>Explore Survey</a>
-          <a href="login.html" class="btn outline-btn mobile-order nav-link"
+          <a href="login.html" class="btn outline-btn mobile-order nav-link login-link"
           ><i class="fa-regular"></i>Login</a>
         </nav>
         <a href="surveyChoices.html" class="btn solid-btn desktop-order nav-link"
@@ -73,7 +73,7 @@
         <a href="MealPlanNow.html" class="btn solid-btn desktop-order nav-link"
           ><i class="fa-regular"></i>Meal Plan Now</a
         >
-        <a href="login.html" class="btn outline-btn desktop-order nav-link"
+        <a href="login.html" class="btn outline-btn desktop-order nav-link login-link"
           ><i class="fa-regular"></i>Login</a>
   
         <button class="mobile-nav-btn">
@@ -427,6 +427,19 @@ Receive your personalized meal plan with detailed recipes and a smart shopping l
           behavior: 'smooth'
         });
       }
+
+      // Display welcome message if user is logged in
+      window.onload = function() {
+        const loggedIn = sessionStorage.getItem('loggedIn');
+        const username = sessionStorage.getItem('username');
+        const loginLinks = document.querySelectorAll('.login-link');
+        if (loggedIn === 'true' && username) {
+          loginLinks.forEach(link => {
+            link.textContent = `Welcome, ${username}`;
+            link.href = '#';
+          });
+        }
+      };
     </script>
 
 <footer>
@@ -488,7 +501,6 @@ Receive your personalized meal plan with detailed recipes and a smart shopping l
         <p class="footer-heading">Contact us</p>
         <address class="contacts">
           <p class="address">
-            BETA Camp Project
           </p>
           <p>
             <a class="footer-link" href="tel:000-000-0000">Coming Soon</a
