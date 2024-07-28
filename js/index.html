@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
         name="description"
-        content="Personalized, expert-endorsed meal-prep solutions trusted by professional athletes.  "
+        content="Personalized, expert-endorsed meal-prep solutions trusted by professional athletes."
     />
 
     <!-- Favicon -->
@@ -33,9 +33,9 @@
 
     <script defer src="js/script.js"></script>
     <title>Preppin</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <header class="header">
         <a href="index.html">
             <img
@@ -65,14 +65,13 @@
           </ul>
           <a href="surveyChoices.html" class="btn solid-btn mobile-order nav-link"
             ><i class="fa-regular"></i>Explore Survey</a>
-            <a href="login.html" class="btn outline-btn mobile-order nav-link"
+            <a href="login.html" id="login-btn" class="btn outline-btn mobile-order nav-link"
             ><i class="fa-regular"></i>Login</a>
-
         </nav>
         <a href="surveyChoices.html" class="btn solid-btn desktop-order nav-link"
           ><i class="fa-regular"></i>Explore Survey</a
         >
-        <a href="login.html" class="btn outline-btn desktop-order nav-link"
+        <a href="login.html" id="desktop-login-btn" class="btn outline-btn desktop-order nav-link"
           ><i class="fa-regular"></i>Login</a>
   
         <button class="mobile-nav-btn">
@@ -127,7 +126,6 @@
                 <img
                   src="/img/meals.png"
                   alt="Several bowls of healthy meals, primarily salads and vegetarian"
-
                 />
               </div>
               <div class="mobile-hero-img">
@@ -174,8 +172,7 @@
                 <h3 class="how-step-num">02</h3>
                 <p class="how-heading">Our Team Will Process Your Information</p>
                 <p class="how-desc">
-                  
-Our algorithm creates a meal plan that aligns with your goals and includes the best local grocery deals. Each plan is reviewed by a nutritionist to ensure optimal, cost-effective nutrition.
+                  Our algorithm creates a meal plan that aligns with your goals and includes the best local grocery deals. Each plan is reviewed by a nutritionist to ensure optimal, cost-effective nutrition.
                 </p>
               </div>
               <img
@@ -189,8 +186,7 @@ Our algorithm creates a meal plan that aligns with your goals and includes the b
                 <h3 class="how-step-num">03</h3>
                 <p class="how-heading">Receive Your Fully Customized Meal Plan</p>
                 <p class="how-desc">
-                 
-Receive your personalized meal plan with detailed recipes and a smart shopping list in just a few hours. Start your journey to better nutrition and fitness with meals tailored to help you achieve your goals.
+                  Receive your personalized meal plan with detailed recipes and a smart shopping list in just a few hours. Start your journey to better nutrition and fitness with meals tailored to help you achieve your goals.
                 </p>
               </div>
               <img
@@ -201,8 +197,6 @@ Receive your personalized meal plan with detailed recipes and a smart shopping l
             </div>
           </section>
           
-
-
           <section class="section-meals" id="meals">
             <h1 class="subheading">Meals</h1>
             <h2 class="body-heading">
@@ -304,7 +298,6 @@ Receive your personalized meal plan with detailed recipes and a smart shopping l
               <span>every</span> dietary preference
               <ul class="meal-types-list">
                 <li class="paleo">Paleo</li>
-    
                 <li class="vegetarian">Vegetarian</li>
                 <li class="gluten">Gluten-Free</li>
                 <li class="lactose">Lactose-Free</li>
@@ -454,6 +447,17 @@ Receive your personalized meal plan with detailed recipes and a smart shopping l
           behavior: 'smooth'
         });
       }
+
+      // Check if the user is logged in
+      document.addEventListener('DOMContentLoaded', function() {
+        const username = sessionStorage.getItem('username');
+        if (username) {
+          document.getElementById('login-btn').innerText = `Welcome, ${username}`;
+          document.getElementById('desktop-login-btn').innerText = `Welcome, ${username}`;
+          document.getElementById('login-btn').href = '#';
+          document.getElementById('desktop-login-btn').href = '#';
+        }
+      });
     </script>
 
 <footer>

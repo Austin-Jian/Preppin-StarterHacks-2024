@@ -99,10 +99,12 @@
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('error-message');
 
-            const storedEmail = localStorage.getItem('email');
-            const storedPassword = localStorage.getItem('password');
+            const storedEmail = sessionStorage.getItem('email');
+            const storedPassword = sessionStorage.getItem('password');
+            const username = sessionStorage.getItem('username');
 
             if (email === storedEmail && password === storedPassword) {
+                sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index.html';
             } else {
                 errorMessage.style.display = 'block';
