@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,9 +33,9 @@
 
     <script defer src="js/script.js"></script>
     <title>Preppin</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <header class="header">
         <a href="index.html">
             <img
@@ -65,14 +65,14 @@
           </ul>
           <a href="surveyChoices.html" class="btn solid-btn mobile-order nav-link"
             ><i class="fa-regular"></i>Explore Survey</a>
-            <a href="login.html" class="btn outline-btn mobile-order nav-link"
+            <a href="login.html" id="login-btn" class="btn outline-btn mobile-order nav-link"
             ><i class="fa-regular"></i>Login</a>
 
         </nav>
         <a href="surveyChoices.html" class="btn solid-btn desktop-order nav-link"
           ><i class="fa-regular"></i>Explore Survey</a
         >
-        <a href="login.html" class="btn outline-btn desktop-order nav-link"
+        <a href="login.html" id="desktop-login-btn" class="btn outline-btn desktop-order nav-link"
           ><i class="fa-regular"></i>Login</a>
   
         <button class="mobile-nav-btn">
@@ -454,6 +454,17 @@ Receive your personalized meal plan with detailed recipes and a smart shopping l
           behavior: 'smooth'
         });
       }
+
+      // Check if the user is logged in
+      document.addEventListener('DOMContentLoaded', function() {
+        const username = localStorage.getItem('username');
+        if (username) {
+          document.getElementById('login-btn').innerText = `Welcome, ${username}`;
+          document.getElementById('desktop-login-btn').innerText = `Welcome, ${username}`;
+          document.getElementById('login-btn').href = '#';
+          document.getElementById('desktop-login-btn').href = '#';
+        }
+      });
     </script>
 
 <footer>

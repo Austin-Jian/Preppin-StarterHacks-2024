@@ -101,8 +101,10 @@
 
             const storedEmail = localStorage.getItem('email');
             const storedPassword = localStorage.getItem('password');
+            const username = localStorage.getItem('username');
 
             if (email === storedEmail && password === storedPassword) {
+                localStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index.html';
             } else {
                 errorMessage.style.display = 'block';
