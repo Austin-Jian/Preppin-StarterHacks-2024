@@ -17,7 +17,7 @@
     />
 
     <!-- External CSS -->
-    <link href="mainmainstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../static/mainmainstyle.css" rel="stylesheet" type="text/css" />
     <link href="mainqueries.css" rel="stylesheet" type="text/css" />
 
     <!-- Font Awesome -->
@@ -70,7 +70,7 @@
         <section class="section-survey-options" id="survey-options">
             <h1 class="subheading">Plan your meal now!</h1>
             <h2 class="body-heading">
-              Please choose the survey that aligns best with your interests!
+              Craft your perfect meal!
             </h2>
             <div class="survey-card-overview">
               <a  class="survey-card-link">
@@ -81,14 +81,10 @@
                   />
                   <div class="survey-card-body">
                     <p class="survey-card-heading">Leftover Ingredients:
-                        
-                        
-
-                    </p>
-                    <p class="survey-card-desc">
-                        <form action="/submit" method="POST" name="fridgeitems" >
-                          <input type='text' id='idea'>
-                          <input type="button" id="add" value="Add New">
+                    
+                    <form action="/submit" method="POST" name="fridgeitems" >
+                          <input type='text' id='idea' style='font-size:17px'>
+                          <input type="button" id="add" value="Add New" style='font-size:17px'>
                           <script>document.getElementById("add").onclick  = function() {
   
                               var node = document.createElement("Li");
@@ -98,7 +94,7 @@
                               document.getElementById("list").appendChild(node);
                           }
                           </script>
-                          <ul id='list'></ul>
+                          <ul id='list' style='font-size:17px'></ul>
                         </form>
                         
                         
@@ -110,10 +106,9 @@
                 <div class="survey-card">
                   <img src="../static/img/athlete.png" alt="Athlete drinking healthy protein shake after workout" />
                   <div class="survey-card-body">
-                    <p class="survey-card-heading">Upload a Receipt</p>
-                    <form method="POST" action="/upload">
-                      <input type="file" id="myFile">
-                      <input type="submit" value="submit" id="receiptsubmit">
+                    <p class="survey-card-heading" >Upload a Receipt</p>
+                    <form method="POST" action="/upload" style="font-size:9.4px">
+                      <input type="file" id="myFile"> <input type="submit" value="submit" id="receiptsubmit">
                     </form>
                     <p class="survey-card-desc">
                       
@@ -139,7 +134,7 @@
                 </div>
               </a>
               
-              <button id="extractButton">Extract List Items</button>
+              <button id="extractButton">CLICK ME TO FIND A MEAL</button>
               <script>
                   document.getElementById('extractButton').addEventListener('click', function() {
                       const listItems = Array.from(document.querySelectorAll('#list li')).map(li => li.textContent);
@@ -160,7 +155,7 @@
                           document.getElementById('variable2').textContent = data.t2;
                           document.getElementById('variable2').setAttribute("href", data.l2);
                           document.getElementById('variable3').textContent = data.t3;
-                          document.getElementById('variable3').setAttribute("href", data.l3);
+                          document.getElementById('variable3').setAttribute("href", "https://www.food.com/recipe/lovely-lime-baked-fish-372620");
 
 
                       })
