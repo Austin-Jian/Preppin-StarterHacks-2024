@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../img/preppin-no-bg.png" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text:ital@0;1&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- External CSS -->
+    <link href="../static/mainmainstyle.css" rel="stylesheet" type="text/css" />
+    <link href="mainqueries.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome -->
+    <script
+        src="https://kit.fontawesome.com/8b02daf965.js"
+        crossorigin="anonymous"
+    ></script>
+    <script defer src="js/script.js"></script>
+
+    <title>Preppin</title>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img
+              src="../static/img/preppin-no-bg.png"
+              class="logo"
+              alt="logo of Preppin"
+              style="height: 90px; width: auto; margin-top: 8px; margin-left: 0px;"
+            />
+          </a>
+        <nav class="main-nav">
+          <ul class="main-nav-list">
+            <li>
+              <a href="index.html#how" class="nav-link">How It Works</a>
+            </li>
+            <li>
+              <a href="index.html#meals" class="nav-link">Meals</a>
+            </li>
+            <li>
+              <a href="index.html#pricing" class="nav-link">Pricing</a>
+            </li>
+            <li>
+              <a href="help.html" class="nav-link">Help</a>
+          </li>
+          </ul>
+        </nav>
+  
+        <button class="mobile-nav-btn">
+          <span class="mobile-open">
+            <i class="fa-solid fa-bars mobile-open"></i>
+          </span>
+          <span class="mobile-close"
+            ><i class="fa-solid fa-xmark mobile-close"></i
+          ></span>
+        </button>
+      </header>
+
+      <main>
+        <section class="section-survey-options" id="survey-options">
+            <h1 class="subheading">Plan your meal now!</h1>
+            <h2 class="body-heading">
+              Please choose the survey that aligns best with your interests!
+            </h2>
+            <div class="survey-card-overview">
+              <a  class="survey-card-link">
+                <div class="survey-card">
+                  <img
+                    src="../static/img/busy.png"
+                    alt="Busy professional eating healthy meal"
+                  />
+                  <div class="survey-card-body">
+                    <p class="survey-card-heading">Leftover Ingredients:
+                        
+                        
+
+                    </p>
+                    <p class="survey-card-desc">
+                        <form action="/submit" method="POST" name="fridgeitems" >
+                          <input type='text' id='idea'>
+                          <input type="button" id="add" value="Add New">
+                          <script>document.getElementById("add").onclick  = function() {
+  
+                              var node = document.createElement("Li");
+                              var text = document.getElementById("idea").value; 
+                              var textnode=document.createTextNode(text);
+                              node.appendChild(textnode);
+                              document.getElementById("list").appendChild(node);
+                          }
+                          </script>
+                          <ul id='list'></ul>
+                        </form>
+                        
+                        
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a href="survey2.html" class="survey-card-link">
+                <div class="survey-card">
+                  <img src="../static/img/athlete.png" alt="Athlete drinking healthy protein shake after workout" />
+                  <div class="survey-card-body">
+                    <p class="survey-card-heading">Upload a Receipt</p>
+                    <form method="POST" action="/upload">
+                      <input type="file" id="myFile">
+                      <input type="submit" value="submit" id="receiptsubmit">
+                    </form>
+                    <p class="survey-card-desc">
+                      
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a href="survey.html" class="survey-card-link">
+                <div class="survey-card">
+                  <img
+                    src="../static/img/health.png"
+                    alt="Person preparing healthy food"
+                  />
+                  <div class="survey-card-body">
+                    <p class="survey-card-heading">
+                      <a href="http://google.ca" id="variable1">Recipes</a>
+                      
+                      <br>
+                      <a href="#" id="variable2">Loading...</a>
+                      <br><a href="#" id="variable3"> </a>
+                    </p>
+                  </div>
+                </div>
+              </a>
+              
+              <button id="extractButton">Extract List Items</button>
+              <script>
+                  document.getElementById('extractButton').addEventListener('click', function() {
+                      const listItems = Array.from(document.querySelectorAll('#list li')).map(li => li.textContent);
+
+                      fetch('/extract', {
+                          method: 'POST',
+                          headers: {
+                              'Content-Type': 'application/json'
+                          },
+                          body: JSON.stringify({ items: listItems })
+                      })
+                      
+                      .then(response => response.json())
+                      .then(data => {
+                          console.log('Success:', data);
+                          document.getElementById('variable1').textContent = data.t1;
+                          document.getElementById('variable1').setAttribute("href", data.l1);
+                          document.getElementById('variable2').textContent = data.t2;
+                          document.getElementById('variable2').setAttribute("href", data.l2);
+                          document.getElementById('variable3').textContent = data.t3;
+                          document.getElementById('variable3').setAttribute("href", data.l3);
+
+
+                      })
+                      
+
+                  });
+
+                  document.getElementById('receiptsubmit').addEventListener('click', function() {
+                      const fileInput = document.getElementById('myFile');
+                      const file = fileInput.files[0];
+
+                      if (file) {
+                          const formData = new FormData();
+                          formData.append('imagefile', file);
+
+                          fetch('http://localhost:5000/upload', {
+                              method: 'POST',
+                              body: formData
+                          })
+                          .then(response => response.json())
+                          .then(data => {
+                              console.log('Success:', data);
+                          })
+                          .catch((error) => {
+                              console.error('Error:', error);
+                          });
+                      } else {
+                          console.error('No file selected');
+                      }
+                  });
+              </script>
+            <br></br>
+            
+            </div>
+          </section>
+      </main>
+</body>
+</html>
