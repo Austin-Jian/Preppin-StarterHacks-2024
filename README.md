@@ -1,4 +1,4 @@
-![Screenshot 2024-09-09 at 10 33 24 PM](https://github.com/user-attachments/assets/8a53d090-5a73-4bc0-be11-4935a7fc194d)![Uploading Screenshot 2024-09-09 at 10.36.50 PM.png…]()
+![Screenshot 2024-09-09 at 10 33 24 PM](https://github.com/user-attachments/assets/8a53d090-5a73-4bc0-be11-4935a7fc194d)
 <img width="1327" alt="Screenshot 2024-09-09 at 10 37 01 PM" src="https://github.com/user-attachments/assets/a19127ea-c6d2-4602-a30d-cf7fa998c4bf">
 
 
